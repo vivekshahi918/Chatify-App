@@ -6,7 +6,7 @@
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 > **Live Demo:** [http://65.1.105.20](http://65.1.105.20)  
-> *(Hosted on AWS EC2 Free Tier)*
+> *(Hosted on AWS EC2)*
 
 ## 🚀 About The Project
 
