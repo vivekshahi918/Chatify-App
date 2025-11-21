@@ -17,9 +17,12 @@ The application is fully containerized using **Docker**, orchestration-ready wit
 ## 📸 Screenshots
 
 <!-- You can upload images of your app here later. For now, this is a placeholder -->
-| Login Page | Chat Interface |
+| Login Page |
 |:---:|:---:|
-| ![Login](image/login.png) | ![Chat](image/Dashboard.png) |
+| ![Login](image/login.png) | 
+| Chat Interface |
+|:---:|:---:|
+|![Chat](image/Dashborad.png) |
 
 ## 🛠️ Tech Stack
 
