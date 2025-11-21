@@ -1,0 +1,23 @@
+# -----------------------------------------------------------
+# App Image Configuration
+# -----------------------------------------------------------
+# This tells Kubernetes to use the image you pushed to Google Container Registry.
+image:
+  repository: gcr.io/chatifyxops/chatify
+  tag: v1
+
+# -----------------------------------------------------------
+# MySQL Database Configuration
+# -----------------------------------------------------------
+# We have removed the old mysql section entirely.
+# Your application will get its database credentials from the
+# 'db-credentials' Kubernetes secret you created earlier.
+# Your Helm chart's deployment.yaml MUST be configured to use this secret.
+
+# -----------------------------------------------------------
+# Service Configuration
+# -----------------------------------------------------------
+# This exposes your application to the internet with a public IP address.
+service:
+  type: LoadBalancer
+  port: 80

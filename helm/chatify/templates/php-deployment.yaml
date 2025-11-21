@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatify-php
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatify-php
+  template:
+    metadata:
+      labels:
+        app: chatify-php
+    spec:
+      containers:
+      - name: php
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        ports:
+        - containerPort: 80
+        
+        # --- THIS IS THE UPDATED SECTION ---
+        # This block takes all key-value pairs from your 'db-credentials' secret
+        # and turns them into environment variables (DB_HOST, DB_USER, etc.)
+        envFrom:
+        - secretRef:
+            name: db-credentials
+        # ------------------------------------
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20

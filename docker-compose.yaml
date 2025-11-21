@@ -1,0 +1,106 @@
+# version: "3.8"
+
+# services:
+#   mysql:
+#     image: mysql:8.0
+#     container_name: chatify-mysql
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: chatify
+#     volumes:
+#       - db-data:/var/lib/mysql
+#       - ./chat.sql:/docker-entrypoint-initdb.d/chat.sql:ro
+#     ports:
+#       - "3308:3306"         # optional: exposes mysql to host on 3308
+#     healthcheck:
+#       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 10
+
+#   web:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     image: chatify-local:latest
+#     container_name: chatify-web
+#     depends_on:
+#       mysql:
+#         condition: service_healthy
+#     volumes:
+#       - ./:/var/www/html:cached
+#     ports:
+#       - "8080:80"
+#     # No DB env vars required — you already have hardcoded "mysql"/"root"/"root"/"chatify"
+
+#   phpmyadmin:
+#     image: phpmyadmin/phpmyadmin:latest
+#     container_name: chatify-pma
+#     environment:
+#       PMA_HOST: mysql
+#       PMA_PORT: 3306
+#       PMA_USER: root
+#       PMA_PASSWORD: root
+#     ports:
+#       - "8081:80"
+#     depends_on:
+#       - mysql
+
+# volumes:
+#   db-data:
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: chatify-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: chatify
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./chat.sql:/docker-entrypoint-initdb.d/chat.sql:ro
+    ports:
+      - "3308:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chatify-local:latest
+    container_name: chatify-web
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./:/var/www/html:cached
+    ports:
+      # CHANGED: 80 on host maps to 80 in container (Clean URL)
+      - "80:80" 
+    environment:
+      # ADDED: This connects your db_connect.php to the mysql container
+      - DB_HOST=mysql
+      - DB_USER=root
+      - DB_PASS=root
+      - DB_NAME=chatify
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: chatify-pma
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+
+volumes:
+  db-data:

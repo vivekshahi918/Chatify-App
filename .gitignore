@@ -1,0 +1,18 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Vendor/Dependency folders (if you have them)
+/vendor/
+/node_modules/
+
+# Ignore Environment variables (Security Risk)
+.env
+
+# Ignore VS Code settings
+.vscode/
+.idea/
+
+# Ignore Docker data (we don't upload the database files themselves)
+db-data/
+mysql/
