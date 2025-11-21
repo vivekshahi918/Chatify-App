@@ -1,77 +1,69 @@
-ChatifyXOps is an evolution of the original Chatify project, blending robust real-time chat features with a modern DevOps approach. 
+# 💬 Chatify - Realtime Chat Application
+
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+
+> **Live Demo:** [http://65.1.105.20](http://65.1.105.20)  
+> *(Hosted on AWS EC2 Free Tier)*
+
+## 🚀 About The Project
+
+**Chatify** is a full-stack real-time messaging application designed to demonstrate modern DevOps and Cloud practices. It allows users to register, login, and exchange messages instantly.
+
+The application is fully containerized using **Docker**, orchestration-ready with **Helm Charts**, and deployed on a live cloud environment using **AWS EC2**.
 
 ## 📸 Screenshots
 
-### ✅ ArgoCD Application Overview
-![ArgoCD](images/AgroCD.png)
+<!-- You can upload images of your app here later. For now, this is a placeholder -->
+| Login Page | Chat Interface |
+|:---:|:---:|
+| ![Login](https://via.placeholder.com/400x200?text=App+Login+Screen) | ![Chat](https://via.placeholder.com/400x200?text=Chat+Interface) |
 
-### 🔁 ArgoCD Auto-Sync in Action
-![ArgoCD Sync](images/AgroCB.png)
+## 🛠️ Tech Stack
 
-### 🐳 Docker Container Overview
-![Docker](images/Docker.png)
+*   **Backend:** PHP 8.2 (Custom MVC Structure)
+*   **Database:** MySQL 8.0
+*   **Infrastructure:** Docker & Docker Compose
+*   **Cloud Hosting:** AWS EC2 (Ubuntu Linux)
+*   **Orchestration:** Helm Charts (Kubernetes Ready)
+*   **Frontend:** HTML5, CSS3, JavaScript
 
-### 💬 ChatifyXOps Login Page
-![Chatify Website](images/website.png)
+## ✨ Key Features
 
-## About Chatify (Before DevOpsified)
+*   ✅ **User Authentication:** Secure Login and Registration system.
+*   ✅ **Containerized:** Runs identically on any machine using Docker.
+*   ✅ **Database Integration:** Persistent data storage with MySQL volumes.
+*   ✅ **Auto-Setup:** Database tables are created automatically on the first launch.
+*   ✅ **Cloud Native:** Includes Helm charts for Kubernetes deployment.
 
-Chatify started as a real-time chat application focused on seamless user communication. It offered:
-- **Instant Messaging:** Real-time conversations between users.
-- **User Authentication:** Secure login and registration.
-- **Responsive UI:** Accessible across devices.
-- **Message Storage:** Reliable and secure message history.
+## ⚙️ How to Run Locally
 
-## DevOpsified: ChatifyXOps (After DevOpsified)
+If you want to run this project on your own computer:
 
-With ChatifyXOps, the project has been transformed to embrace DevOps best practices, making it production-ready and scalable:
-- **Infrastructure as Code:** Automated provisioning and management of cloud resources using Agro.
-- **CI/CD Pipelines:** Continuous integration and deployment for faster, safer releases.
-- **Containerization:** All services run in Docker containers for consistency and portability.
-- **Monitoring & Logging:** Integrated tools for observability and troubleshooting.
-- **Scalability:** Designed to efficiently handle increased user load.
-
-## Features
-
-- Real-time messaging
-- User authentication and authorization
-- Responsive web interface
-- Secure message storage and retrieval
-- Automated testing and deployment
-
-## Getting Started
-
-1. **Clone the repository:**
+1.  **Clone the repository**
     ```bash
-    git clone https://github.com/vivekshahi918/ChatifyXOps.git
+    git clone https://github.com/vivekshahi918/Chatify-App.git
+    cd Chatify-App
     ```
-2. **Install dependencies:**
-    ```bash
-    cd ChatifyXOps
-    ```
-3. **Set up environment variables:**  
-   Copy `.env.example` to `.env` and update as needed.
-    ```bash
-    cp .env.example .env
-    ```
-4. **Build Docker images:**
-    ```bash
-    docker-compose build
-    ```
-5. **Start the application:**
-    ```bash
-    docker-compose up
-    ```
-6. **Access the app:**  
-   Open your browser at `http://localhost:3000`.
 
-## DevOps Highlights
+2.  **Start with Docker Compose**
+    ```bash
+    docker-compose up -d --build
+    ```
 
-- **Agro:** Used for infrastructure automation and orchestration.
-- **CI/CD:** Automated pipelines for testing and deployment.
-- **Dockerized:** All services run in containers for consistency and portability.
+3.  **Access the App**
+    *   Web App: `http://localhost:8080` (or Port 80 depending on config)
+    *   Database GUI: `http://localhost:8081`
 
-## License
+## ☁️ Deployment Details (AWS)
 
-This project is for personal or educational use only.  
-Unauthorized copying or distribution is prohibited..
+This project is currently live on **Amazon Web Services (AWS)**.
+*   **Instance:** EC2 (t3.micro)
+*   **OS:** Ubuntu Server 24.04 LTS
+*   **Networking:** Static Elastic IP for consistent access.
+*   **Security:** Configured Security Groups to allow HTTP (80) and Custom TCP (8081).
+
+---
+*Developed by Vivek Shahi*
