@@ -19,7 +19,7 @@ The application is fully containerized using **Docker**, orchestration-ready wit
 <!-- You can upload images of your app here later. For now, this is a placeholder -->
 | Login Page | Chat Interface |
 |:---:|:---:|
-| ![Login](https://via.placeholder.com/400x200?text=App+Login+Screen) | ![Chat](https://via.placeholder.com/400x200?text=Chat+Interface) |
+| ![Login](image/login.png) | ![Chat](image/Dashboard.png) |
 
 ## 🛠️ Tech Stack
 
