@@ -6,7 +6,6 @@
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 > **AWS LIVE:** [http://65.1.105.20](http://65.1.105.20)
-> **LIVE DEMO:** [https://chatify-app.ddns.net](https://chatify-app.ddns.net)
 
 ## 🚀 About The Project
 
